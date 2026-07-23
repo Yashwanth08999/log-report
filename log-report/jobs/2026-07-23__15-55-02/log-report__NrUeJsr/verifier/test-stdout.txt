@@ -1,0 +1,73 @@
+============================= test session starts ==============================
+platform linux -- Python 3.13.14, pytest-8.4.1, pluggy-1.6.0
+rootdir: /tests
+plugins: json-ctrf-0.3.5, json-report-1.5.0, metadata-3.1.1
+collected 3 items
+
+../tests/test_outputs.py FFF                                             [100%]
+
+=================================== FAILURES ===================================
+_____________________________ test_total_requests ______________________________
+
+    def test_total_requests():
+        """Success criterion 1: total_requests equals the total number of log entries."""
+>       report = load_report()
+                 ^^^^^^^^^^^^^
+
+/tests/test_outputs.py:14: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def load_report():
+        report = Path("/app/report.json")
+>       assert report.exists(), "report.json not found"
+E       AssertionError: report.json not found
+E       assert False
+E        +  where False = exists()
+E        +    where exists = PosixPath('/app/report.json').exists
+
+/tests/test_outputs.py:7: AssertionError
+_______________________________ test_unique_ips ________________________________
+
+    def test_unique_ips():
+        """Success criterion 2: unique_ips equals the number of unique client IP addresses."""
+>       report = load_report()
+                 ^^^^^^^^^^^^^
+
+/tests/test_outputs.py:20: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def load_report():
+        report = Path("/app/report.json")
+>       assert report.exists(), "report.json not found"
+E       AssertionError: report.json not found
+E       assert False
+E        +  where False = exists()
+E        +    where exists = PosixPath('/app/report.json').exists
+
+/tests/test_outputs.py:7: AssertionError
+________________________________ test_top_path _________________________________
+
+    def test_top_path():
+        """Success criterion 3: top_path equals the most frequently requested URL path."""
+>       report = load_report()
+                 ^^^^^^^^^^^^^
+
+/tests/test_outputs.py:26: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def load_report():
+        report = Path("/app/report.json")
+>       assert report.exists(), "report.json not found"
+E       AssertionError: report.json not found
+E       assert False
+E        +  where False = exists()
+E        +    where exists = PosixPath('/app/report.json').exists
+
+/tests/test_outputs.py:7: AssertionError
+--------------------------------- JSON report ----------------------------------
+report saved to: .report.json
+=========================== short test summary info ============================
+FAILED ../tests/test_outputs.py::test_total_requests - AssertionError: report...
+FAILED ../tests/test_outputs.py::test_unique_ips - AssertionError: report.jso...
+FAILED ../tests/test_outputs.py::test_top_path - AssertionError: report.json ...
+============================== 3 failed in 0.05s ===============================
